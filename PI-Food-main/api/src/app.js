@@ -22,6 +22,7 @@ server.use((req, res, next) => {
   next();
 });
 
+//all req will be redirected to index from route folder
 server.use('/', routes);
 
 // Error catching endware.

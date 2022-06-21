@@ -2,7 +2,7 @@ const sequelize = require('sequelize');
 const { DataTypes, UniqueConstraintError } = require('sequelize'); 
 
 module.exports = (sequelize) => {
-    sequelize.define('diet', {
+    sequelize.define('Diet', {
         id: {
         type: DataTypes.INTEGER,
         primaryKey: true, //to define my own PK
@@ -13,12 +13,6 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING,
         allowNull: false
         },
-        healthScore: {
-            type: DataTypes.BOOLEAN
-        },
-        stepByStep: {
-            type: DataTypes.TEXT
-        }
 
     })
 }
