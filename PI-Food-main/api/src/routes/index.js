@@ -1,19 +1,20 @@
 const { Router } = require('express');
-const diets = require('./dietRoute.js')
-const recipes = require('./recipeRoute')
+const { axios } = require('axios');
+const { Diet, Recipe } =require ('../db');
+const recipeRoute = require('./recipeRoute');
+const dietRoute = require('./dietRoute');
+const {
+    API_URL_KEY,
+  } = process.env;
+
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
-
 const router = Router();
+router.use('/recipes', recipeRoute);
+router.use('/diets', dietRoute);
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
-//Modularization of Routes. 
-router.use('/recipes', recipes)
-router.use('/diets', diets)
-
-
-
 
 module.exports = router;
