@@ -1,14 +1,14 @@
 const { Router } = require('express');
 const axios = require('axios'); //require data from API
 const { Recipe, Diet, Op } = require('../db.js'); //require data from db
-const {API_URL_KEY} = process.env;
+const {API_URL_KEY, API_KEY} = process.env;
 
 
 //gets washed info from api and database 
-const getAPIandDb = async (req, res) => {
-    try { 
-        const respuesta = await axios.get(API_URL_KEY); //when there is 304 error you should delete browsing data
-        const washed = res.json(respuesta.data.results.map( el  => {
+const getAPI = async () => {
+
+        const respuesta = await axios.get('https://api.spoonacular.com/recipes/complexSearch?apiKey=0b291a2a4d644b278b204948d5df5e19&number=100&addRecipeInformation=true'); 
+        const washed = await respuesta.data.results?.map( el  => {
             return {
                 id: el.id,
                 title: el.title,
@@ -19,15 +19,12 @@ const getAPIandDb = async (req, res) => {
                 }),
                 diets: el.diets
             }
-        }))
-        res.send(washed.concat(gettingDatabaseInfo()));
-    } catch (e) {
-        console.log(e);
-    };
+        })
+        return washed; 
   };
 
 //gets info from db without info yet
-const gettingDatabaseInfo = async () => {
+const getDatabaseInfo = async () => {
     var recipeDb = await Recipe.findAll({
         include:{
             model: Diet,
@@ -40,10 +37,24 @@ const gettingDatabaseInfo = async () => {
     return recipeDb;
 };
 
-
+const allRecipes = async () => {
+    const apiInfo = await getAPI(); //porque me da undefined?
+    const dbInfo = await getDatabaseInfo();
+    var totalRecipes = [...apiInfo, ...dbInfo]
+    return(totalRecipes);
+}
 
 const filterFunction = async (req, res, next) => {
-    res.send('Filter path is working')
+    const {title} = req.query;
+    const recetas = await allRecipes(); 
+ try {
+    if(title){
+        var recetasFiltradas =  recetas.filter(el => el.title.toLowerCase().includes(title.toLowerCase()))
+        res.send(recetasFiltradas)
+    } else {
+        res.send(recetas)}
+} catch(e) {
+    next(e) }
 };
 
 const getRecipeId = async (req, res) => {
@@ -54,4 +65,4 @@ const addToDatabase = async (req,res) => {
     res.send('Create recipe path')
 }
 
-module.exports = { getAPIandDb, filterFunction, getRecipeId, addToDatabase}
+module.exports = { getAPI, filterFunction, getRecipeId, addToDatabase, allRecipes}

@@ -2,13 +2,11 @@ const { Router } = require('express');
 const axios = require('axios'); //require data from API
 const { Recipe, Diet, Op } = require('../db.js'); //require data from db
 const {API_KEY} = process.env;
-const { getAPIandDb, filterFunction, getRecipeId, addToDatabase } = require('../services/recipeServices.js');
+const { getAPI, filterFunction, getRecipeId, addToDatabase, allRecipes } = require('../services/recipeServices.js');
 
 const recipeRoute = Router(); 
 
-//shows data from API and db
-recipeRoute.get('/all', getAPIandDb);
-
+//recipeRoute.get('/', getAPI);
 //filters by name 
 recipeRoute.get('/', filterFunction);
 
