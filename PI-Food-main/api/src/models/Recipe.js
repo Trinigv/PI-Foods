@@ -28,5 +28,5 @@ module.exports = (sequelize) => {
     image: {
       type: DataTypes.BLOB
     }
-  });
+  }, {timestamps: false});
 };
