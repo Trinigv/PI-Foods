@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react'; 
 import SingleRecipe from './SingleRecipe';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBackendRecipes } from '../Redux/actions';
+import { getBackendRecipes } from '../../Redux/actions';
+import SearchBar from './SearchBar';
 
 
 export default function Cards() {
@@ -11,15 +12,14 @@ export default function Cards() {
     useEffect(() => {
         dispatch(getBackendRecipes())
     },[dispatch])
-
     return (
         <div> 
-             {recipesState.length && recipesState.map(recipe => 
-                 <SingleRecipe title={recipe.title} 
-                 summary={recipe.summary}
-                 healthScore = {recipe.healthScore}
-                 diets = {recipe.diets}
+            <SearchBar/>
+             {recipesState.length > 0 && recipesState.map(recipe => 
+                 <SingleRecipe 
                  image={recipe.image}
+                 title={recipe.title}
+                 diets = {recipe.diets}
                  key={recipe.id}/>)}
         </div>
     )

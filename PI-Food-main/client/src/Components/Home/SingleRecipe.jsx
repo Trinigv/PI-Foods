@@ -7,7 +7,7 @@ export default function SingleRecipe(props) {
         <div>
             <div>
                <div> 
-                    <h1>{props.title}</h1> 
+                    <h3>{props.title}</h3> 
                 </div> 
                 <div> 
                     <h1>{props.summary}</h1> 
@@ -16,7 +16,7 @@ export default function SingleRecipe(props) {
                     <h1>{props.healthScore}</h1> 
                 </div> 
                 <div> 
-                    <h1>{props.diets}</h1> 
+                    <h4>{props.diets}</h4> 
                 </div> 
                 <div> 
                     <h1>{props.instructions}</h1> 

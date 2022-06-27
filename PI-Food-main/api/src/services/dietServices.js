@@ -3,7 +3,11 @@ const axios = require('axios'); //require data from API
 const { Recipe, Diet, Op } = require('../db.js'); //require data from db
 const sequelize = require('sequelize');
 
+// const getDiets 
+// obtener todas las diets de la db y devolver el objeto
 
+
+// uploadDiets no es llamada por ninguna ruta y solamente crea las diets en la db
 const uploadDiets = async (req, res) => {
     const diet = [
         'gluten free',

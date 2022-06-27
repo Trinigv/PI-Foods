@@ -1,25 +1,25 @@
 const { Router } = require('express');
 const axios = require('axios'); //require data from API
 const { Recipe, Diet, Op } = require('../db.js'); //require data from db
-const {API_URL_KEY, API_KEY} = process.env;
+const { API_KEY_5 } = process.env; 
 
 
 //----------------GETTING RECIPES----------------------
 const getAPI = async () => {
-        const respuesta = await axios.get('https://api.spoonacular.com/recipes/complexSearch?apiKey=900eb09a508d49b3828561c0d358c901&number=100&addRecipeInformation=true'); 
+        const respuesta = await axios.get(API_KEY_5); 
         const washed = await respuesta.data.results?.map( el  => {
             return {
                 id: el.id,
                 title: el.title,
                 healthScore: el.healthScore,
-                sumary: el.summary,
+                summary: el.summary,
                 instructions: el.analyzedInstructions[0]?.steps.map(s => s.step ),
                 diets: el.diets,
                 image: el.image
             }
         })
         return washed; 
-  };
+};
 
 //gets info from db
 const getDatabaseInfo = async () => { //falta agregar try catch?
@@ -59,7 +59,7 @@ const filterFunction = async (req, res, next) => {
 
 const getRecipeId = async (req, res, next) => {
     let id = req.params.id;
-    if(typeof id === 'number') { id = parseInt(id); }
+    if(typeof id === 'number') { id = parseInt(id); } //0500 -> 500
     const recipes = await allRecipes();
     try {
         if(id) {
@@ -70,13 +70,12 @@ const getRecipeId = async (req, res, next) => {
 };
 
 const createRecipe = async (req, res, next) => {
-   
     const { title, summary, healthScore, instructions, image, diets } = req.body;
     if(!title || !summary) return res.status(404).json({err: 'Faltan datos obligatorios'})
     try {
     const newRecipe = await Recipe.create({title, summary, healthScore, instructions, image})
     let dietDB = await Diet.findOne({where : { name: diets} })
-    newRecipe.addDiet(dietDB); 
+    newRecipe.addDiet(dietDB); // que hace esto?
     res.status(201).json({newRecipe})
     } catch(e) {
         next(e)
