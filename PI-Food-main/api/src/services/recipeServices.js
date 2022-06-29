@@ -71,11 +71,12 @@ const getRecipeId = async (req, res, next) => {
 
 const createRecipe = async (req, res, next) => {
     const { title, summary, healthScore, instructions, image, diets } = req.body;
+    console.log(diets); 
     if(!title || !summary) return res.status(404).json({err: 'Faltan datos obligatorios'})
     try {
     const newRecipe = await Recipe.create({title, summary, healthScore, instructions, image})
-    let dietDB = await Diet.findOne({where : { name: diets} })
-    newRecipe.addDiet(dietDB); // que hace esto?
+    const allDiets = await Diet.findAll({where: {name: diets}})
+    newRecipe.addDiet(allDiets); 
     res.status(201).json({newRecipe})
     } catch(e) {
         next(e)

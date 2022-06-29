@@ -5,27 +5,53 @@ const sequelize = require('sequelize');
 
 // const getDiets 
 // obtener todas las diets de la db y devolver el objeto
+const getDiets = async (req, res, next) => {
+    try {
+        const diet = [
+            "gluten free",
+            "dairy free",
+            "paleolithic",
+            "vegetarian",
+            "lacto vegetarian",
+            "ovo vegetarian",
+            "lacto ovo vegetarian",
+            "primal",
+            "whole 30",
+            "fodmap friendly",
+            "ketogenic",
+            "pescatarian",
+            "vegan"
+        ]
+        for (let i = 0; i < diet.length; i++) {
+             await Diet.findOrCreate({where: {name: diet[i]}});
+        }
+        const allDiets = await Diet.findAll()
+        res.send(allDiets)
+    } catch(e) {
+        next(e)
+    }
+}
 
-
-// uploadDiets no es llamada por ninguna ruta y solamente crea las diets en la db
-const uploadDiets = async (req, res) => {
+/*const uploadDiets = async () => {
     const diet = [
-        'gluten free',
-        'ketogenic', 
-        'vegetarian', 
-        'lacto vegetarian',
-        'ovo vegetarian', 
-        'vegan', 
-        'pescetarian', 
-        'paleo', 
-        'primal', 
-        'low fodmap', 
-        'whole30'
+        "gluten free",
+        "dairy free",
+        "paleolithic",
+        "vegetarian",
+        "lacto vegetarian",
+        "ovo vegetarian",
+        "lacto ovo vegetarian",
+        "primal",
+        "whole 30",
+        "fodmap friendly",
+        "ketogenic",
+        "pescatarian",
+        "vegan"
     ]
     for (let i = 0; i < diet.length; i++) {
          await Diet.findOrCreate({where: {name: diet[i]}});
     }
-   res.send(diet)
-}; 
+   return
+}; */
 
-module.exports = { uploadDiets }
+module.exports = { getDiets }

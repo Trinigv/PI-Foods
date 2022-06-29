@@ -26,7 +26,8 @@ module.exports = (sequelize) => {
       type: DataTypes.TEXT
     },
     image: {
-      type: DataTypes.BLOB
+      type: DataTypes.TEXT,
+      defaultValue: 'https://spoonacular.com/berry-banana-breakfast-smoothie-715497'
     }
   }, {timestamps: false});
 };

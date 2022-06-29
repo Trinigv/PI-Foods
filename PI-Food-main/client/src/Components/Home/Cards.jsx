@@ -3,6 +3,8 @@ import SingleRecipe from './SingleRecipe';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBackendRecipes } from '../../Redux/actions';
 import SearchBar from './SearchBar';
+import { Link } from 'react-router-dom';
+import FilterDiet from './DietFilter';
 
 
 export default function Cards() {
@@ -14,8 +16,10 @@ export default function Cards() {
     },[dispatch])
     return (
         <div> 
-            <SearchBar/>
-             {recipesState.length > 0 && recipesState.map(recipe => 
+            <div> <SearchBar> </SearchBar>  </div> 
+            <div> <FilterDiet> </FilterDiet> </div>
+            <div> <Link to='/create'> <button>Create your own recipe</button> </Link> </div> 
+                {recipesState.length > 0 && recipesState.map(recipe => 
                  <SingleRecipe 
                  image={recipe.image}
                  title={recipe.title}
