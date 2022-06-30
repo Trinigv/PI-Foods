@@ -1,9 +1,11 @@
-import { GET_RECIPES, GET_DIETS, GET_RECIPE_DETAIL, CREATE_RECIPE } from './actions'
+import { GET_RECIPES, GET_DIETS, GET_RECIPE_DETAIL, CREATE_RECIPE, FILTER_BY_DIET } from './actions'
 
 const initialState = {
-    totalRecipes: [],
+    recipes: [], 
+    totalRecipes: [], 
     totalDiets: [],
 }
+
 
 export default function rootReducer(state=initialState, action) {
 
@@ -11,7 +13,8 @@ export default function rootReducer(state=initialState, action) {
         case GET_RECIPES: 
             return {
                 ...state, 
-                totalRecipes: action.payload
+                totalRecipes: action.payload,
+                recipes: action.payload
             }
         case GET_DIETS:
             return {
@@ -26,6 +29,13 @@ export default function rootReducer(state=initialState, action) {
         case CREATE_RECIPE: 
             return {
                 ...state
+            }
+        case FILTER_BY_DIET:
+            const recipes = state.recipes;
+            const search  = recipes.filter(r => r.diets?.some(d => d === action.payload))
+            return {
+                ...state,
+                totalRecipes: search
             }
 
         default: return state
