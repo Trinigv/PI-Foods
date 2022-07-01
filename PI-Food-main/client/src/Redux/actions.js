@@ -2,8 +2,10 @@ import axios from 'axios';
 export const GET_RECIPES = 'GET_RECIPES';
 export const GET_DIETS = 'GET_DIETS';
 export const GET_RECIPE_DETAIL = 'GET_RECIPE_DETAIL'; 
-export const CREATE_RECIPE = 'CREATE_RECIPE'
-export const FILTER_BY_DIET = 'FILTER_BY_DIET'
+export const CREATE_RECIPE = 'CREATE_RECIPE'; 
+export const FILTER_BY_DIET = 'FILTER_BY_DIET';
+export const SORT_HEALTHSCORE = 'SORT_HEALTHSCORE';
+export const ALPHABET = 'ALPHABET'
 
 export const getBackendRecipes = () => {
    return async function ask(dispatch) {
@@ -50,3 +52,16 @@ export function filterByDiet (payload) {
     }
 };
 
+export function sortByHealthscore(payload) {
+    return {
+        type: SORT_HEALTHSCORE,
+        payload
+    }
+}
+
+export function sortAlphabetically(payload) {
+    return {
+        type: ALPHABET,
+        payload
+    }
+}
