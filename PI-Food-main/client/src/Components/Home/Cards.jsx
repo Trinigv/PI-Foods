@@ -25,18 +25,24 @@ export default function Cards() {
     useEffect(() => {
         dispatch(getBackendRecipes())
     },[dispatch])
+    
+    
     return (
         <div> 
             <div> <SearchBar> </SearchBar>  </div> 
             <div> <DietFilter></DietFilter></div>Sort by Healthscore:<div><button value='MaxtoMin' onClick={e => handleEvent(e)}>From Max to Min</button></div> <button value='MinToMax' onClick={e => handleEvent(e)}>From Min to Max</button>
             <div><button value='AZ' onClick={e => handleEventAlphabet(e)}>Sort from A to Z </button></div> <div><button value='ZA'  onClick={e => handleEventAlphabet(e)}>Sort from Z to A</button></div>
             <div> <Link to='/create'> <button>Create your own recipe</button> </Link> </div> 
+              
+              
                 {recipesState.length > 0 && recipesState.map(recipe => 
                  <SingleRecipe 
                  image={recipe.image} //todas deben tener img por default
                  title={recipe.title}
                  diets = {recipe.diets}
-                 key={recipe.id}/>)}
+                 id={recipe.id}/>
+                )}
+                
         </div>
     )
 }

@@ -1,9 +1,10 @@
-import { GET_RECIPES, GET_DIETS, GET_RECIPE_DETAIL, CREATE_RECIPE, FILTER_BY_DIET, SORT_HEALTHSCORE, ALPHABET } from './actions'
+import { GET_RECIPES, GET_DIETS, RECIPE_DETAIL, CREATE_RECIPE, FILTER_BY_DIET, SORT_HEALTHSCORE, ALPHABET, GET_RECIPE_NAME} from './actions'
 
 const initialState = {
     recipes: [], 
     totalRecipes: [], 
     totalDiets: [],
+    recipeDetail: [],
 }
 
 
@@ -21,7 +22,7 @@ export default function rootReducer(state=initialState, action) {
                 ...state,
                 totalDiets: action.payload
             }
-        case GET_RECIPE_DETAIL:
+        case GET_RECIPE_NAME:
             return {
                 ...state,
                 totalRecipes: action.payload
@@ -36,6 +37,11 @@ export default function rootReducer(state=initialState, action) {
             return {
                 ...state,
                 totalRecipes: search
+            }
+        case RECIPE_DETAIL: 
+            return {
+                ...state,
+                recipeDetail: action.payload
             }
         case SORT_HEALTHSCORE: 
             let sorted = [...state.recipes]
