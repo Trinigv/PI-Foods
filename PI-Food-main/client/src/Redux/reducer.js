@@ -23,7 +23,8 @@ export default function rootReducer(state=initialState, action) {
                 totalDiets: action.payload
             }
         case GET_RECIPE_NAME:
-            return {
+            
+            return{
                 ...state,
                 totalRecipes: action.payload
             }

@@ -36,7 +36,7 @@ export default function SingleRecipe(props) {
                 </div>
 
                 <div><h3>{props.id}</h3></div>
-                { location.pathname.includes('/home') ? <button onClick={(e) => handleClick(e)}><Link to='/details'>Details</Link></button> : '🍔' }
+                { location.pathname.includes('/home') ? <button onClick={(e) => handleClick(e)}><Link to='/details'>Details</Link></button> : '🏠' }
                
         </div>
     )

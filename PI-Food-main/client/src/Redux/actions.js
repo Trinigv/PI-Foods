@@ -29,9 +29,11 @@ export const getBackendDiets = () => {
 
 export const getRecipesByName = (title) => {
     return async (dispatch) => {
-        return fetch(`http://localhost:3001/recipes/?title=${title}`)
-        .then(res => res.json())
-        .then(detail => {dispatch( {type: GET_RECIPE_NAME, payload: detail} )})
+        let response = await axios.get(`http://localhost:3001/recipes/?title=${title}`)
+        return dispatch({
+            type: GET_RECIPE_NAME,
+            payload: response.data
+        })
     }
 }
 

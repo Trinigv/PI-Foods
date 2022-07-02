@@ -11,6 +11,7 @@ const diets = useSelector(state => state.totalDiets)
 const [input, setNewInput] = React.useState()
 
 
+
  function handleSelect(e) {
     e.preventDefault();
     setNewInput(e.target.value)
