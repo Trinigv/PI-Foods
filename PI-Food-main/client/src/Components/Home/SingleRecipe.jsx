@@ -1,12 +1,14 @@
 import React from 'react'; 
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { getRecipeDetail } from '../../Redux/actions';
+
 //destructuring of components
 
 export default function SingleRecipe(props) {
 
     const dispatch = useDispatch();
+    const location = useLocation(); 
 
     function handleClick(e){
         e.preventDefault(); 
@@ -17,9 +19,9 @@ export default function SingleRecipe(props) {
         <div>
             <div> 
                 <h1>{props.title}</h1>
-                <div> 
-                    <h1>{props.summary}</h1> 
-                </div> 
+
+                <h1>{props.summary}</h1>
+                
                 <div> 
                     <h1>{props.healthScore}</h1> 
                 </div> 
@@ -34,7 +36,7 @@ export default function SingleRecipe(props) {
                 </div>
 
                 <div><h3>{props.id}</h3></div>
-                <button onClick={(e) => handleClick(e)}><Link to='/details'>Details</Link></button>
+                { location.pathname.includes('/home') ? <button onClick={(e) => handleClick(e)}><Link to='/details'>Details</Link></button> : '🍔' }
                
         </div>
     )

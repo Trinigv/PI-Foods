@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import Landing from './Components/Landing';
 import Cards from './Components/Home/Cards';
 import Create from './Components/Creation/creation'
-import Details from './Components/Home/RecipeDetail';
+import Details from './Components/Home/Details';
 
 function App() {
   return (
@@ -12,7 +12,6 @@ function App() {
       <Route path='/home'> <Cards/>  </Route>
       <Route path='/create'> <Create/> </Route>
       <Route path='/details'> <Details/> </Route>
-
     </div>
   );
 }

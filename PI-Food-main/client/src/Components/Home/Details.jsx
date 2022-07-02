@@ -3,8 +3,6 @@ import {  useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SingleRecipe from './SingleRecipe';
 
-
-
 export default function Details () {
     const recipeDetails = useSelector(state => state.recipeDetail)
     console.log(recipeDetails)
@@ -12,10 +10,10 @@ export default function Details () {
     return (
         <div>
                 {recipeDetails.length > 0 && recipeDetails.map( r => 
-                   <SingleRecipe 
+                   <SingleRecipe key={r.id}
                    title = {r.title} 
                    image={r.image}
-                   summary={r.summary}
+                   summary = {r.summary ? r.summary.replace(/<[^>]*>?/gm, "") : 'Summary not available'}
                    healthScore={r.healthScore}
                    instructions={r.instructions} />
                 )}
