@@ -1,0 +1,58 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    padding: 15px;
+    background-image: url('https://images.pexels.com/photos/5824523/pexels-photo-5824523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    padding: 80px;
+}
+
+.body{
+    background-color:  rgb(40, 40, 40);
+}
+
+.paginationBack{
+    background-color: rgb(40, 40, 40);
+}
+
+.all{
+    background-color: rgb(40, 40, 40);
+}
+
+.buttons{
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border-radius: 90px;
+    border:none;
+    padding:2px;
+    justify-content: space-around;
+    padding-inline: 80px;
+}
+
+  
+
+
+.b{
+    border-radius: 10px;
+    border:none;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 30px;
+}
+
+.b:hover{
+    background-color: pink;
+}
+
+.searchHome{
+    display: flex;
+    flex-direction:column-reverse;
+    justify-content: center;
+    padding: 5px;
+}
+
+#c:hover{
+    background-color: pink;
+}
+    

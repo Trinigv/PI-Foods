@@ -1,0 +1,45 @@
+.titleRecipe{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 15px;
+    color: rgb(40, 40, 40)
+}
+
+.imageRecipe{
+    border-radius: 150px;
+    max-width: 100%;
+}
+
+.detailbutton{
+    border:none;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: whitesmoke;
+    width: 90px;
+    height: 30px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.recipesCard{
+    padding: 15px;
+    border: 2px;
+    border-style: solid;
+    border-radius: 10%;
+    border-color: lightgrey;
+    margin-top: 3px;
+    margin-left: 7px;
+    margin-bottom: 3px;
+    margin-right: 7px;
+    padding: 40px;
+    background-color: lightgrey;
+    opacity: 90%;
+
+}
+
+.dietsRecipe{
+    color: rgb(40, 40, 40)
+}
+
+

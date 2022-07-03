@@ -1,0 +1,65 @@
+.background{
+    background-color: beige;
+}
+
+h2{
+    font-family: monospace;
+    font-size: xx-large;
+    font-style: italic;
+}
+
+form{
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15px;
+    display:block;
+    font-size: larger;
+}
+
+input:hover{
+    background-color: pink;
+}
+
+.title{
+    font-family: 'Courier New', Courier, monospace;
+    margin-right: 7px;
+    font-size:larger;
+}
+
+.diets{
+    margin-top: 20px;
+    padding:15px;
+    justify-content: center;
+    margin-right: 80px;
+    
+}
+
+.image{
+    margin-top: 5px;
+    padding:15px;
+    margin-right: 5px;
+    justify-content: center;
+    font-size:larger;
+}
+
+.intstructions{
+    margin-right: 90px;
+    margin-top: 20px;
+    font-size:larger;
+}
+
+.healthscore{
+    margin-right: 85px;
+    margin-top: 20px;
+    font-size:larger;
+}
+
+.summary{
+    margin-right: 30px;
+    margin-top: 20px;
+    font-size:larger;
+}
+
+.button{
+    margin-left: 60px;
+}
+

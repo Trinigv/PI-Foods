@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useState } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { getBackendDiets, postRecipe } from '../../Redux/actions';
+import './creation.css'
+import video from '../videos/Pasta2.mp4';
 
 export default function Create() {
 
@@ -66,36 +68,42 @@ const handleSelect = (event) => {
     })
 }
     return (
+        <div className='f'>
         <div>
-                <h2>Your new Recipe: </h2>
+                <h2 className='new'>Your new Recipe: </h2>
             <form onSubmit = {(event) => handleSubmit(event)}>
-
+                <div className='title'>
                 <label>Title</label>
                 <input type='text' name='title' value={newRecipe.title} 
                 onChange={(event) => handleInputEvent(event)}
                 className={errors.title && 'danger'}/>
                 {errors.title ? <p> <small>{errors.title}</small></p> : false}
-
-                <label>Summary</label>
-                <input type='text' name='summary' value={newRecipe.summary} 
-                onChange={(event) => handleInputEvent(event)}
-                className={errors.summary}/>
-                {errors.summary ? <p> <small>{errors.summary}</small></p> : false}
-
-                <label>HealthScore</label>
-                <input type='number' name='healthScore' value={newRecipe.healthScore} 
-                onChange={(event) => handleInputEvent(event)}
-                className = {errors.healthScore}/>
+                </div>
+                <div className='summary'>
+                    <label>Summary</label>
+                    <input type='text' name='summary' value={newRecipe.summary} 
+                    onChange={(event) => handleInputEvent(event)}
+                    className={errors.summary}/>
+                    {errors.summary ? <p> <small>{errors.summary}</small></p> : false}
+                </div>
+                <div className='healthscore'>
+                    <label>HealthScore</label>
+                    <input type='number' name='healthScore' value={newRecipe.healthScore} 
+                    onChange={(event) => handleInputEvent(event)}
+                    className = {errors.healthScore}/>
                 {errors.healthScore ? <p> <small>{errors.healthScore}</small></p> : false}
-
-                <label>Instructions</label>
-                <input type='text' name='instructions' value={newRecipe.instructions} onChange={ (event) => handleInputEvent(event)}/>
-
+                </div>
+                <div className='intstructions'>
+                    <label>Instructions</label>
+                    <input type='text' name='instructions' value={newRecipe.instructions} onChange={ (event) => handleInputEvent(event)}/>
+                </div>
+                <div className='image'>
                 <label>Image</label>
                 <input type='text' name='image' value={newRecipe.image} onChange={ (event) => handleInputEvent(event)}/>
                 {errors.image ? <p><small>{errors.image}</small></p> : false}
+                </div>
 
-                <div> 
+                <div className='diets'> 
                     <label>Select diets:</label>
                     <select onChange={(event) => {handleSelect(event)}}>
                         {diets.map((d) => <option key={d.id} value={d.name}>{d.name}</option>) // falta key
@@ -104,9 +112,14 @@ const handleSelect = (event) => {
                     <ul><li>{newRecipe.diets}</li></ul>
                 </div>
 
-                <input type='submit' name='Submit' />
+                <input className='button' type='submit' name='Submit' />
+                
 
             </form>
+            <video autoPlay muted loop> <source src={video}/> </video>
+        </div>
+        
+
         </div>
     )
 }

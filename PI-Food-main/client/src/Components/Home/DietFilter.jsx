@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'; 
 import { useDispatch, useSelector } from 'react-redux';
 import { filterByDiet, getBackendDiets} from '../../Redux/actions';
+import './DietFilter.css';
 
 
 
@@ -34,7 +35,7 @@ const [input, setNewInput] = React.useState()
     return (
         <div>
         <select onChange={e => handleSelect(e)}> { diets.length && diets.map(d => <option key={d.id}>{d.name}</option>)} </select>  
-        <button onClick={e => handleSubmit(e)}>Search</button>
+        <button className='selectDiet' onClick={e => handleSubmit(e)}>Search</button>
         </div>
     )
    

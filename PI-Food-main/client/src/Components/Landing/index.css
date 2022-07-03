@@ -1,0 +1,32 @@
+video {
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    min-height: 100%;
+    min-width: 100%;
+    z-index: -1;
+  
+}
+
+h3{
+    font-size: 500%;
+    font-family:monospace;
+    color: rgb(254, 185, 197);
+    font: bolder;
+}
+
+.starting{
+    border-radius: 15px;
+    border:none;
+    width: 120px;
+    height: 90px;
+    background-color: whitesmoke;
+    margin-top: 5px;
+    font-size: large;
+    font-family: monospace;
+}
+
+.starting:hover{
+    background-color:pink
+}
+
