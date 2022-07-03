@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import DietFilter from './DietFilter';
 import Pagination from './Pagination'
 import './Home.css'
-import video from '../videos/vegetables.mp4'
 
 
 let prevId = 1; 
@@ -23,7 +22,12 @@ export default function Cards() {
 
     const quantity = page * recipesPage; 
     const firstRecipePage = quantity - recipesPage;
-    const showRecipesPage = recipesState.slice(firstRecipePage, quantity);
+    var showRecipesPage;
+    showRecipesPage = recipesState.slice(firstRecipePage, quantity);
+    
+    if(typeof showRecipesPage === 'string'){
+        showRecipesPage ='Could not find recipes ❌'
+    }
     
     const paged = function(pageNumber) {
         setPage(pageNumber)
@@ -52,8 +56,8 @@ export default function Cards() {
     useEffect(() => {
         dispatch(getBackendRecipes())
     },[dispatch])
-    
-    
+
+    console.log(showRecipesPage)
     
     return (
         <div className='all'>
@@ -80,13 +84,13 @@ export default function Cards() {
             </div>
             </div>
             <div className='cards' >
-                {showRecipesPage.length > 0 && showRecipesPage.map(recipe =>
+                { typeof showRecipesPage === 'object' ? showRecipesPage?.map(recipe =>
                  <SingleRecipe  key={prevId++} 
-                 image={recipe.image} //todas deben tener img por default
+                 image={recipe.image} 
                  title={recipe.title}
                  diets = {recipe.diets?.map(d => d + ' 🥑 ')}
                  id={recipe.id} /> 
-                )}
+                ) : <h2>{showRecipesPage}</h2> }
             </div>
             <button className='buttons' onClick={handleClick}>Refresh</button>
         </div>

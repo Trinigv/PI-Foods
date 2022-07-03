@@ -23,10 +23,10 @@ export default function rootReducer(state=initialState, action) {
                 totalDiets: action.payload
             }
         case GET_RECIPE_NAME:
-            
             return{
                 ...state,
-                totalRecipes: action.payload
+                totalRecipes: action.payload,
+                recipes: action.payload
             }
         case CREATE_RECIPE: 
             return {
@@ -45,7 +45,7 @@ export default function rootReducer(state=initialState, action) {
                 recipeDetail: action.payload
             }
         case SORT_HEALTHSCORE: 
-            let sorted = [...state.recipes]
+            let sorted = [...state.totalRecipes]
             sorted = action.payload === 'MinToMax' ?
             sorted.sort(function(a,b) {
                 return a.healthScore - b.healthScore
@@ -57,7 +57,7 @@ export default function rootReducer(state=initialState, action) {
                 totalRecipes: sorted
             }
         case ALPHABET:
-            let sortAlphabet = [...state.recipes]
+            let sortAlphabet = [...state.totalRecipes]
             sortAlphabet = action.payload === 'AZ' ?
             sortAlphabet.sort(function(a,b) {
                 if(a.title.toLowerCase() > b.title.toLowerCase()) return 1
@@ -73,10 +73,7 @@ export default function rootReducer(state=initialState, action) {
                 ...state,
                 totalRecipes: sortAlphabet
             }
-
-    
-
-
+            
         default: return state
     }
 

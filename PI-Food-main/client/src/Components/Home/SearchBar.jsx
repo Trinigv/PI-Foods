@@ -1,12 +1,14 @@
 import React from 'react'; 
 import { useState } from 'react'; 
 import { getRecipesByName } from '../../Redux/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './SearchBar.css'
 
 export default function SearchBar() {
     const dispatch = useDispatch(); //to use dispatch
     const [name, setName] = useState(''); // use state in functional component (hooks)
+
+    const recipeName = useSelector(state => state.totalRecipes)
 
     function handleChange(e){
         e.preventDefault(); 
@@ -22,6 +24,7 @@ export default function SearchBar() {
         <div className='search'>
         <input type='text' placeholder='Search...' onChange= { e => handleChange(e) }/>
         <button type='submit' className='buttonsearch' onClick={ e => handleSubmit(e)}>Search</button> 
+        { recipeName ?  <></> :  'Could not find recipes with that name ❌'}
         </div>
 
     )
