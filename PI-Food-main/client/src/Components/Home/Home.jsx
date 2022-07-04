@@ -29,6 +29,10 @@ export default function Cards() {
         showRecipesPage ='Could not find recipes ❌'
     }
     
+    if(showRecipesPage.length === 0) {
+        showRecipesPage = 'Could not find recipes ❌'
+    }
+    
     const paged = function(pageNumber) {
         setPage(pageNumber)
     }
@@ -56,8 +60,6 @@ export default function Cards() {
     useEffect(() => {
         dispatch(getBackendRecipes())
     },[dispatch])
-
-    console.log(showRecipesPage)
     
     return (
         <div className='all'>
@@ -76,7 +78,6 @@ export default function Cards() {
             
                 <button className='b' value='ZA'  onClick={e => handleEventAlphabet(e)}>Sort from Z to A</button>
             <div> 
-
             </div>
                 <Link to='/create'> <button className='buttons' id='c'>Create your own recipe</button> </Link> </div> 
             <div className='paginationBack'>
@@ -84,7 +85,7 @@ export default function Cards() {
             </div>
             </div>
             <div className='cards' >
-                { typeof showRecipesPage === 'object' ? showRecipesPage?.map(recipe =>
+                { typeof showRecipesPage === 'object'  || showRecipesPage.length === 0 ? showRecipesPage?.map(recipe =>
                  <SingleRecipe  key={prevId++} 
                  image={recipe.image} 
                  title={recipe.title}

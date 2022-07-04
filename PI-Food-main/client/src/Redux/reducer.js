@@ -73,7 +73,7 @@ export default function rootReducer(state=initialState, action) {
                 ...state,
                 totalRecipes: sortAlphabet
             }
-            
+
         default: return state
     }
 
