@@ -1,14 +1,9 @@
-import React, { useEffect } from 'react'; 
-import { useDispatch } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
-import { getRecipeDetail } from '../../Redux/actions';
+import React from 'react'; 
 import './SingleRecipe.css'
 
 //destructuring of components
 
 export default function SingleRecipe(props) {
-
-    console.log(props)
 
     return (
         <div className='recipesCard'>
@@ -23,7 +18,7 @@ export default function SingleRecipe(props) {
                     <h4 className='dietsRecipe'>{props.diets}</h4> 
                 </div> 
                 <div> 
-                    <h1 className='instructionsRecipe'>{props.instructions}</h1> 
+                    <h3 className='instructionsRecipe'>{props.instructions}</h3> 
                 </div> 
                <div > 
                     <img className='imageRecipe' src={props.image} alt='Imagen no disponible'/> 

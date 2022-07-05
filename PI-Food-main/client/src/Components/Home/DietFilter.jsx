@@ -30,12 +30,10 @@ export default function DietFilter() {
         dispatch(getBackendDiets())
     }, [dispatch])
 
-    useEffect(() => {
-        dispatch(getBackendRecipes())
-    }, [dispatch])
+
 
     return (
-        <div>
+        <div className='dietfilter'>
             <select onChange={e => handleSelect(e)}> <option selected="true" disabled="disabled">Choose Tagging</option> {diets.length && diets.map(d => <option key={d.id}>{d.name}</option>)} </select>
             <button className='selectDiet' onClick={e => handleSubmit(e)}>Search</button>
         </div>

@@ -71,7 +71,6 @@ const getRecipeId = async (req, res, next) => {
 
 const createRecipe = async (req, res, next) => {
     const { title, summary, healthScore, instructions, image, diets } = req.body;
-    console.log(diets); 
     if(!title || !summary) return res.status(404).json({err: 'Faltan datos obligatorios'})
     try {
     const newRecipe = await Recipe.create({title, summary, healthScore, instructions, image})

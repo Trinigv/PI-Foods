@@ -47,9 +47,9 @@
 
 .searchHome{
     display: flex;
-    flex-direction:column-reverse;
+    flex-direction:column;
     justify-content: center;
-    padding: 5px;
+    padding: 2px;;
 }
 
 #c:hover{

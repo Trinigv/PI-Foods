@@ -33,11 +33,12 @@ export default function rootReducer(state=initialState, action) {
                 ...state
             }
         case FILTER_BY_DIET:
-            const recipes = state.recipes;
-            const search  = recipes.filter(r => r.diets?.some(d => d === action.payload))
+            const recipes = state.recipes; //? state.recipes o state.totalRecipes
+            var search; 
+            typeof recipes === 'object' ? search = recipes.filter(r => r.diets?.some(d => d === action.payload)) : search=[]; 
             return {
                 ...state,
-                totalRecipes: search
+                totalRecipes: search,
             }
         case RECIPE_DETAIL: 
             return {

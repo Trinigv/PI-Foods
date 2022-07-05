@@ -9,6 +9,7 @@ export default function SearchBar() {
     const [name, setName] = useState(''); // use state in functional component (hooks)
 
     const recipeName = useSelector(state => state.totalRecipes)
+    console.log(recipeName)
 
     function handleChange(e){
         e.preventDefault(); 

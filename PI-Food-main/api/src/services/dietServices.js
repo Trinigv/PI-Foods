@@ -32,26 +32,4 @@ const getDiets = async (req, res, next) => {
     }
 }
 
-/*const uploadDiets = async () => {
-    const diet = [
-        "gluten free",
-        "dairy free",
-        "paleolithic",
-        "vegetarian",
-        "lacto vegetarian",
-        "ovo vegetarian",
-        "lacto ovo vegetarian",
-        "primal",
-        "whole 30",
-        "fodmap friendly",
-        "ketogenic",
-        "pescatarian",
-        "vegan"
-    ]
-    for (let i = 0; i < diet.length; i++) {
-         await Diet.findOrCreate({where: {name: diet[i]}});
-    }
-   return
-}; */
-
 module.exports = { getDiets }
