@@ -25,13 +25,14 @@ export default function Cards() {
     var showRecipesPage;
     showRecipesPage = recipesState.slice(firstRecipePage, quantity);
     
-    if(typeof showRecipesPage === 'string'){
+    if(typeof showRecipesPage === 'string'){ //When searching for name of unexisting recipe
         showRecipesPage ='Could not find recipes ❌'
     }
     
-    if(showRecipesPage.length === 0) {
-        showRecipesPage = 'Could not find recipes ❌'
+    if(showRecipesPage.length === 0) { //when searching for a diet that is not included
+        showRecipesPage = 'Could not find recipes'
     }
+    console.log(showRecipesPage)
     
     const paged = function(pageNumber) {
         setPage(pageNumber)

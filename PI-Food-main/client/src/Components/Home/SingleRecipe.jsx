@@ -15,11 +15,11 @@ export default function SingleRecipe(props) {
         e.preventDefault(); 
         dispatch(getRecipeDetail(props.id))
     }
+    console.log(props.id)
 
     return (
         <div className='recipesCard'>
-            <div> 
-                <h1 className='titleRecipe'>{props.title}</h1>
+            <div> <Link to={`/details/${props.id}`}> <h1 className='titleRecipe'>{props.title}</h1> </Link>
 
                 <h1 className='summaryRecipe'>{props.summary}</h1>
                 
