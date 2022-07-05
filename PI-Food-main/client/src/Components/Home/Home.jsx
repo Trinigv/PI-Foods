@@ -87,11 +87,13 @@ export default function Cards() {
             </div>
             <div className='cards' >
                 { typeof showRecipesPage === 'object'  || showRecipesPage.length === 0 ? showRecipesPage?.map(recipe =>
-                 <SingleRecipe  key={prevId++} 
-                 image={recipe.image} 
-                 title={recipe.title}
-                 diets = {recipe.diets?.map(d => d + ' 🥑 ')}
-                 id={recipe.id} /> 
+                 <div> <Link to={`/detail/${recipe.id}`}> <SingleRecipe key={prevId++} 
+                    image={recipe.image} 
+                    title={recipe.title}
+                    diets = {recipe.diets?.map(d => d + ' 🥑 ')}
+                    id={recipe.id} /> 
+                 </Link> 
+                 </div>
                 ) : <h2>{showRecipesPage}</h2> }
             </div>
             <button className='buttons' onClick={handleClick}>Refresh</button>

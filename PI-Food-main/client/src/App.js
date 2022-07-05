@@ -11,7 +11,8 @@ function App() {
       <Route exact path='/'> <Landing/> </Route>
       <Route path='/home'> <Home/>  </Route>
       <Route path='/create'> <Create/> </Route>
-      <Route path='/details'> <Details/> </Route>
+      {/*<Route path='/details'> <Details/> </Route>*/}
+      <Route path='/detail/:id' component={Details}/>
     </div>
   );
 }

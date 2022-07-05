@@ -64,7 +64,7 @@ const getRecipeId = async (req, res, next) => {
     try {
         if(id) {
             var recipeId = recipes.filter(el => el.id == id); 
-            recipeId.length ? res.send(recipeId) : res.status(404).send(`No se ha encontrado receta con id ${id}`)}
+            recipeId.length ? res.send(recipeId[0]) : res.status(404).send(`No se ha encontrado receta con id ${id}`)}
         } catch(e) {
         next(e) }
 };

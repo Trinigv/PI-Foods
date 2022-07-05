@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, { useEffect } from 'react'; 
 import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { getRecipeDetail } from '../../Redux/actions';
@@ -8,18 +8,11 @@ import './SingleRecipe.css'
 
 export default function SingleRecipe(props) {
 
-    const dispatch = useDispatch();
-    const location = useLocation(); 
-
-    function handleClick(e){
-        e.preventDefault(); 
-        dispatch(getRecipeDetail(props.id))
-    }
-    console.log(props.id)
+    console.log(props)
 
     return (
         <div className='recipesCard'>
-            <div> <Link to={`/details/${props.id}`}> <h1 className='titleRecipe'>{props.title}</h1> </Link>
+            <div> <h1 className='titleRecipe'>{props.title}</h1>
 
                 <h1 className='summaryRecipe'>{props.summary}</h1>
                 
@@ -33,12 +26,9 @@ export default function SingleRecipe(props) {
                     <h1 className='instructionsRecipe'>{props.instructions}</h1> 
                 </div> 
                <div > 
-                    <img className='imageRecipe' src={props.image} alt='Imagen no disponible'/> </div>          
+                    <img className='imageRecipe' src={props.image} alt='Imagen no disponible'/> 
                 </div>
 
-                <div>{ location.pathname.includes('/home') ? '🍴' : false }</div>
-
-                <div>{ location.pathname.includes('/home') ? <button className='detailbutton' onClick={(e) => handleClick(e)}><Link to='/details'>Details</Link></button> : '🏠' } 
             </div>
                
         </div>
