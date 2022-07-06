@@ -4,6 +4,7 @@ import './SingleRecipe.css'
 //destructuring of components
 
 export default function SingleRecipe(props) {
+    console.log(props)
 
     return (
         <div className='recipesCard'>
@@ -17,6 +18,9 @@ export default function SingleRecipe(props) {
                 <div> 
                     <h4 className='dietsRecipe'>{props.diets}</h4> 
                 </div> 
+                <div>
+                    <h1 className='typeDiet'>{ props.Diets && props.Diets[0].name}</h1>
+                </div>
                 <div> 
                     <h3 className='instructionsRecipe'>{props.instructions}</h3> 
                 </div> 

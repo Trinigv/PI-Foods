@@ -51,7 +51,7 @@ const handleSubmit = (event) => {
         dispatch(postRecipe(newRecipe));
         alert('recipe created!');
         setNewRecipe({
-            title: ' ', //arreglar esto
+            title: '', 
             summary: '',
             healthScore: '', 
             instructions: '',
@@ -64,7 +64,7 @@ const handleSubmit = (event) => {
 const handleSelect = (event) => {
     setNewRecipe({
         ...newRecipe,
-        diets: [...newRecipe.diets, event.target.value] //almacena lo seleccionado
+        diets: newRecipe.diets.concat(event.target.value)//almacena lo seleccionado
     })
 }
     return (
@@ -76,7 +76,7 @@ const handleSelect = (event) => {
                 <label>Title</label>
                 <input type='text' name='title' value={newRecipe.title} 
                 onChange={(event) => handleInputEvent(event)}
-                className={errors.title && 'danger'}/>
+                className={errors.title}/>
                 {errors.title ? <p> <small>{errors.title}</small></p> : false}
                 </div>
                 <div className='summary'>
@@ -105,11 +105,11 @@ const handleSelect = (event) => {
 
                 <div className='diets'> 
                     <label>Select diets:</label>
-                    <select onChange={(event) => {handleSelect(event)}}>
-                        {diets.map((d) => <option key={d.id} value={d.name}>{d.name}</option>) // falta key
-                        } 
+                    <select onChange={(event) => handleSelect(event)} >
+                        {diets.map((d) => <option onClick={(event) => handleSelect(event)}
+                        key={d.id} value={d.name}>{d.name}</option>)} 
                     </select>
-                    <ul><li>{newRecipe.diets}</li></ul>
+                    <ul><li>{newRecipe.diets + ' '}</li></ul>
                 </div>
 
                 <input className='button' type='submit' name='Submit' />
@@ -135,6 +135,9 @@ export function validate(newRecipe) {
     }
     if(!newRecipe.summary) {
         error.summary = 'Recipe summary can not be empty'
+    }
+    if(!newRecipe.healthScore) {
+        error.healthScore = 'Recipe must have healthscore'
     }
     if(newRecipe.healthScore > 100 || newRecipe.healthScore < 0) {
         error.healthScore = 'Healthscore must be lower than 100 and higher than 0'

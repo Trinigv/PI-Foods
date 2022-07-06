@@ -82,6 +82,17 @@ const createRecipe = async (req, res, next) => {
     }
 };
 
+/*cons deleteRecipe(id) = async (req, res, next) => {
+    const id = req.paramd.id;
+    try{
+    if(!id) { res.send('Send an id')}
+    var recipeToDelete = await Recipe.destroy( { where:{id} })
+    res.send('Recipe deleted)
+    } catch (e) {
+        next(e)
+    }
+
+}*/
 
 
 module.exports = { filterFunction, getRecipeId, createRecipe, allRecipes }

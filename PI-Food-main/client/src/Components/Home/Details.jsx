@@ -7,6 +7,7 @@ export default function Details(props) {
     const dispatch = useDispatch();
     const recipeDetails = useSelector(state => state.recipeDetail)
     const id = props.match.params.id;
+    console.log(recipeDetails)
     
     useEffect(() => {
         dispatch(getRecipeDetail(id))
@@ -24,7 +25,10 @@ export default function Details(props) {
                 </div>
 
                 <div>
-                    <h4 className='dietsRecipe'>{recipeDetails.diets}</h4>
+                    <h4 className='dietsRecipe'>{recipeDetails.diets && recipeDetails.diets.map(d => d + ' ')}</h4>
+                </div>
+                <div>
+                    <h2 className='typeDiet'>{ recipeDetails.Diets && recipeDetails.Diets.map(o => o.name + ' ')}</h2>
                 </div>
                 <div>
                     <h1 className='instructionsRecipe'>{recipeDetails.instructions}</h1>

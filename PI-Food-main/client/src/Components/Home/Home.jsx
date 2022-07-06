@@ -32,7 +32,6 @@ export default function Cards() {
     if(showRecipesPage.length === 0) { //when searching for a diet that is not included
         showRecipesPage = 'Could not find recipes'
     }
-    console.log(showRecipesPage)
     
     const paged = function(pageNumber) {
         setPage(pageNumber)
@@ -61,6 +60,8 @@ export default function Cards() {
     useEffect(() => {
         dispatch(getBackendRecipes())
     },[dispatch])
+
+    console.log(recipesState)
     
     return (
         <div className='all'>
@@ -86,11 +87,12 @@ export default function Cards() {
             </div>
             </div>
             <div className='cards' >
-                { typeof showRecipesPage === 'object'  || showRecipesPage.length === 0 ? showRecipesPage?.map(recipe =>
+                { typeof showRecipesPage === 'object' ? showRecipesPage?.map(recipe =>
                  <div> <Link to={`/detail/${recipe.id}`}> <SingleRecipe key={prevId++} 
                     image={recipe.image} 
                     title={recipe.title}
                     diets = {recipe.diets?.map(d => d + ' 🥑 ')}
+                    Diets = {recipe.Diets?.map(o => o)}
                     id={recipe.id} /> 
                  </Link> 
                  </div>
