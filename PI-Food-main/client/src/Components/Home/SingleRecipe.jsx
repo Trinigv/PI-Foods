@@ -19,7 +19,7 @@ export default function SingleRecipe(props) {
                     <h4 className='dietsRecipe'>{props.diets}</h4> 
                 </div> 
                 <div>
-                    <h1 className='typeDiet'>{ props.Diets && props.Diets[0].name}</h1>
+                    <h1 className='typeDiet'>{ props.Diets === undefined ? false : props.Diets?.map(o => o.name)}</h1>
                 </div>
                 <div> 
                     <h3 className='instructionsRecipe'>{props.instructions}</h3> 

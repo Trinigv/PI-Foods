@@ -33,12 +33,21 @@ export default function rootReducer(state=initialState, action) {
                 ...state
             }
         case FILTER_BY_DIET:
-            const recipes = state.recipes; //? state.recipes o state.totalRecipes
-            var search; 
-            typeof recipes === 'object' ? search = recipes.filter(r => r.diets?.some(d => d === action.payload)) : search=[]; 
+            const recipesComplete = state.recipes; //? state.recipes o state.totalRecipe
+            var total;
+            var total2; 
+            typeof recipesComplete === 'object' 
+            ? total=recipesComplete.filter(r => r.diets?.some(d => d===action.payload))
+            : total=[]; 
+            typeof recipesComplete === 'object'
+            ? total2 = recipesComplete.filter(r => r.Diets?.some(o => o.name===action.payload))
+            : total2=[];
+            console.log(total2, 'total2')
+            var totF = total.concat(total2)
+            console.log(totF)
             return {
                 ...state,
-                totalRecipes: search,
+                totalRecipes: totF
             }
         case RECIPE_DETAIL: 
             return {

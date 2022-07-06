@@ -14,11 +14,12 @@ let prevId = 1;
 export default function Cards() {
     const dispatch = useDispatch()
     const recipesState = useSelector(state => state.totalRecipes); 
-
-    const [order, setOrder] = useState('')
+    console.log(recipesState)
 
     const [page, setPage] = useState(1);
     const[recipesPage, setRecipesPage] = useState(9)
+
+    const [order, setOrder] = useState('')
 
     const quantity = page * recipesPage; 
     const firstRecipePage = quantity - recipesPage;
@@ -36,6 +37,10 @@ export default function Cards() {
     const paged = function(pageNumber) {
         setPage(pageNumber)
     }
+
+    useEffect(() => {
+        dispatch(getBackendRecipes())
+    },[dispatch])
 
     function handleEvent(e) {
         e.preventDefault()
@@ -57,9 +62,7 @@ export default function Cards() {
         setOrder(`Order ${e.target.value}`);
     }
 
-    useEffect(() => {
-        dispatch(getBackendRecipes())
-    },[dispatch])
+   
 
     console.log(recipesState)
     
@@ -67,8 +70,8 @@ export default function Cards() {
         <div className='all'>
             <div className='body'> 
             <div className='searchHome'> 
-                <div> <SearchBar> </SearchBar>  </div> 
-                <div className='dietfilter'> <DietFilter></DietFilter></div>
+                <div> <SearchBar setPage={setPage}> </SearchBar>  </div> 
+                <div className='dietfilter'> <DietFilter setPage={setPage}></DietFilter></div>
             </div>
             <div className='buttons'>
             
@@ -85,6 +88,7 @@ export default function Cards() {
             <div className='paginationBack'>
                 <Pagination recipesPage={recipesPage} recipesState={recipesState.length} paged={paged}/>
             </div>
+            <div><button className='refresh' onClick={handleClick}> 🔄</button></div>
             </div>
             <div className='cards' >
                 { typeof showRecipesPage === 'object' ? showRecipesPage?.map(recipe =>
@@ -98,7 +102,6 @@ export default function Cards() {
                  </div>
                 ) : <h2>{showRecipesPage}</h2> }
             </div>
-            <button className='buttons' onClick={handleClick}>Refresh</button>
         </div>
     )
 }

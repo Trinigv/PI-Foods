@@ -56,3 +56,13 @@
     background-color: pink;
 }
     
+.refresh{
+  height: 25px;
+  width: 28px;
+  background-color: whitesmoke;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  border-color: black;
+}

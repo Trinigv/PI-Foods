@@ -6,7 +6,7 @@ import './DietFilter.css';
 
 
 
-export default function DietFilter() {
+export default function DietFilter({setPage}) {
     const dispatch = useDispatch()
     const diets = useSelector(state => state.totalDiets)
 
@@ -21,6 +21,7 @@ export default function DietFilter() {
         e.preventDefault();
         if(input){
         dispatch(filterByDiet(input))}
+        setPage(1)
     }
 
     console.log(input)
@@ -34,8 +35,9 @@ export default function DietFilter() {
 
     return (
         <div className='dietfilter'>
-            <select onChange={e => handleSelect(e)}> <option selected="true" disabled="disabled">Choose Tagging</option> {diets.length && diets.map(d => <option key={d.id}>{d.name}</option>)} </select>
+            <select onChange={e => handleSelect(e)}> <option value="none" selected disabled hidden>Select an Option</option> {diets.length && diets.map(d =>  <option key={d.id}>{d.name}</option>)} </select>
             <button className='selectDiet' onClick={e => handleSubmit(e)}>Search</button>
+
         </div>
     )
 
