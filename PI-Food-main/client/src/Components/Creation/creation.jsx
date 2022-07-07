@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getBackendDiets, postRecipe } from '../../Redux/actions';
 import './creation.css'
 import video from '../videos/Pasta2.mp4';
+import { Link } from 'react-router-dom';
 
 export default function Create() {
 
@@ -62,10 +63,13 @@ const handleSubmit = (event) => {
 }
 
 const handleSelect = (event) => {
+    if(!newRecipe.diets.includes(event.target.value)){
     setNewRecipe({
         ...newRecipe,
         diets: newRecipe.diets.concat(event.target.value)//almacena lo seleccionado
-    })
+    })} else {
+        alert('You cant add the same diet twice')
+    }
 }
     return (
         <div className='f'>
@@ -113,9 +117,8 @@ const handleSelect = (event) => {
                 </div>
 
                 <input className='button' type='submit' name='Submit' />
-                
-
             </form>
+            <button className='button'><Link to='/home'>Home</Link></button>
             <video autoPlay muted loop> <source src={video}/> </video>
         </div>
         
@@ -130,8 +133,8 @@ export function validate(newRecipe) {
     if(!newRecipe.title) {
         error.title = 'Recipe name can not be empty'
     }
-    if(!/[a-zA-Z]/.test(newRecipe.title)){
-        error.title='Recipe name must contain letters'
+    if(!/(?!^\s+$)^.*$/m.test(newRecipe.title) || !/^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/.test(newRecipe.title)){
+        error.title='Recipe must start with letter and cant contain special caracters'
     }
     if(!newRecipe.summary) {
         error.summary = 'Recipe summary can not be empty'
@@ -139,10 +142,10 @@ export function validate(newRecipe) {
     if(!newRecipe.healthScore) {
         error.healthScore = 'Recipe must have healthscore'
     }
-    if(newRecipe.healthScore > 100 || newRecipe.healthScore < 0) {
-        error.healthScore = 'Healthscore must be lower than 100 and higher than 0'
+    if(newRecipe.healthScore > 100 || newRecipe.healthScore < 0 || newRecipe.healthScore.includes('e') || newRecipe.healthScore.includes(',') || newRecipe.healthScore.includes('.')) {
+        error.healthScore = 'Healthscore must be an integer lower than 100 and higher than 0'
     }
-    if(!/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_.~#?&//=]*)/.test(newRecipe.image)){
+    if(!/^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/.test(newRecipe.image)){
         error.image = 'Image must be a valid URL'
     }
     return error; 

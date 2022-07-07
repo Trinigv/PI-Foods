@@ -17,8 +17,7 @@ export default function Cards() {
     console.log(recipesState)
 
     const [page, setPage] = useState(1);
-    const[recipesPage, setRecipesPage] = useState(9)
-
+    const [recipesPage, setRecipesPage] = useState(9)
     const [order, setOrder] = useState('')
 
     const quantity = page * recipesPage; 

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterByDiet, getBackendDiets } from '../../Redux/actions';
-import { getBackendRecipes } from '../../Redux/actions';
 import './DietFilter.css';
 
 

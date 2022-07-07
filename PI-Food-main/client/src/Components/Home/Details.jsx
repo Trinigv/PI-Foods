@@ -31,8 +31,9 @@ export default function Details(props) {
                     <h2 className='typeDiet'>{ recipeDetails.Diets && recipeDetails.Diets.map(o => o.name + ' ')}</h2>
                 </div>
                 <div>
-                    <h1 className='instructionsRecipe'>{recipeDetails.instructions}</h1>
+                    <h3 className='instructionsRecipe'>{recipeDetails.instructions}</h3>
                 </div>
+                <div> <h3>{recipeDetails.dishTypes}</h3></div>
 
                 <div>
                     <img className='imageRecipe' src={recipeDetails.image} alt='Imagen no disponible' />

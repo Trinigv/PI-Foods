@@ -14,6 +14,7 @@ const getAPI = async () => {
                 healthScore: el.healthScore,
                 summary: el.summary,
                 instructions: el.analyzedInstructions[0]?.steps.map(s => s.step ),
+                dishtypes: el.dishtypes,
                 diets: el.diets,
                 image: el.image
             }
