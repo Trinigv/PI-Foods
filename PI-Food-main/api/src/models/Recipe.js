@@ -25,6 +25,10 @@ module.exports = (sequelize) => {
     instructions: {
       type: DataTypes.TEXT
     },
+    dishTypes: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      defaultValue: ['main dish']
+    },
     image: {
       type: DataTypes.TEXT,
       defaultValue: 'https://spoonacular.com/berry-banana-breakfast-smoothie-715497'

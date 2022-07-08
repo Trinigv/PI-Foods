@@ -4,7 +4,6 @@ import './SingleRecipe.css'
 //destructuring of components
 
 export default function SingleRecipe(props) {
-    console.log(props)
 
     return (
         <div className='recipesCard'>

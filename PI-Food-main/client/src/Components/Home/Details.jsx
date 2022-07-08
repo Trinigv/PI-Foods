@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getRecipeDetail } from '../../Redux/actions';
+import './Details.css'
 
 export default function Details(props) {
     const dispatch = useDispatch();
@@ -12,36 +13,37 @@ export default function Details(props) {
     useEffect(() => {
         dispatch(getRecipeDetail(id))
     }, [dispatch, id]) //lo hace solo cuando se renderiza (componentDidMount)
-
+    console.log(props, props)
     return (
-        <div>
-            <div> 
-                <h1 className='titleRecipe'>{recipeDetails.title}</h1>
+        <div id='back'>
+            <div id='titleRecipe'> 
+                <h1 >{recipeDetails.title}</h1>
 
-                <h1 className='summaryRecipe'>{recipeDetails.summary?.replace(/<[^>]*>?/gm, "")}</h1>
+                <h1 className='summaryRecipe'> Summary:{recipeDetails.summary?.replace(/<[^>]*>?/gm, "")}</h1>
 
                 <div>
-                    <h1 className='healthScoreRecipe'>{recipeDetails.healthScore}</h1>
+                    <h1 id='healthScoreRecipe'>{recipeDetails.healthScore}</h1>
                 </div>
 
                 <div>
-                    <h4 className='dietsRecipe'>{recipeDetails.diets && recipeDetails.diets.map(d => d + ' ')}</h4>
+                    <h4 className='dietsRecipe'>Diets: {recipeDetails.diets && recipeDetails.diets.map(d => d + ' ')}</h4>
                 </div>
                 <div>
-                    <h2 className='typeDiet'>{ recipeDetails.Diets && recipeDetails.Diets.map(o => o.name + ' ')}</h2>
+                    <h4 className='dietsRecipe'>Dishtypes: {recipeDetails.dishTypes + ''}</h4>
                 </div>
                 <div>
-                    <h3 className='instructionsRecipe'>{recipeDetails.instructions}</h3>
+                    <h2 className='typeDiet'>Details:{ recipeDetails.Diets && recipeDetails.Diets.map(o => o.name + ' ')}</h2>
                 </div>
-                <div> <h3>{recipeDetails.dishTypes}</h3></div>
-
+                <div>
+                    <h3 id='instructions'>Instructions:{recipeDetails.instructions}</h3>
+                </div>
                 <div>
                     <img className='imageRecipe' src={recipeDetails.image} alt='Imagen no disponible' />
                 </div>
 
             </div>
 
-            <Link to='/home'><button>Home</button></Link>
+            <Link to='/home'><button className='b'>Home</button></Link>
         </div>
 
     )

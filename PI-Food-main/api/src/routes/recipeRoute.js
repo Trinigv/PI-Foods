@@ -2,7 +2,7 @@ const { Router } = require('express');
 const axios = require('axios'); //require data from API
 const { Recipe, Diet, Op } = require('../db.js'); //require data from db
 const {API_KEY} = process.env;
-const {filterFunction, getRecipeId, createRecipe} = require('../services/recipeServices.js');
+const {filterFunction, getRecipeId, createRecipe, recipeDetails} = require('../services/recipeServices.js');
 //const { deleteRecipe } = require ... 
 const recipeRoute = Router(); 
 
@@ -10,7 +10,7 @@ const recipeRoute = Router();
 recipeRoute.get('/', filterFunction);
 
 //shows recipe by id 
-recipeRoute.get('/:id', getRecipeId);
+recipeRoute.get('/:id', recipeDetails);
 
 //path to create recipe
 recipeRoute.post('/create', createRecipe);

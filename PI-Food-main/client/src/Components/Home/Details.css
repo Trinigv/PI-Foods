@@ -1,0 +1,20 @@
+#back{
+    background-color:blanchedalmond;
+}
+#titleRecipe{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+}
+
+.summaryRecipe{
+    font-size: medium;
+}
+
+#instructions{
+    font-size: medium;
+    color: black;
+}
+
+#healthScoreRecipe{
+    color: green;
+}

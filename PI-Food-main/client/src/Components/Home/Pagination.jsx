@@ -3,17 +3,25 @@ import './Pagination.css'
 
 
 
-export default function Pagination({recipesPage, recipesState, paged}) {
+export default function Pagination({recipesPage, recipesState, paged, setPage, page, max}) {
     const pages = [];
 
     for (let i = 1; i <= Math.ceil(recipesState/recipesPage); i++) {
         pages.push(i)
     }
-    console.log(recipesPage, recipesState)
+
+    const previous = () => {
+        setPage(page - 1)
+    }
+    
+    const next = () => {
+        setPage(page + 1)
+    }
 
     return (
         <div>
             {pages.length <= 1 ? <></> : <nav className='nav'> 
+                <button className='b' disabled={ page===1 } onClick={previous}>Prev</button>
                 <ul>
                     {pages?.map(p => (
                         <li key={p}>
@@ -21,6 +29,7 @@ export default function Pagination({recipesPage, recipesState, paged}) {
                         </li>
                     ))}
                 </ul>
+                <button className='b' disabled={page===max || page > max} onClick={next}>Next</button>
                 </nav> 
             }
         </div>

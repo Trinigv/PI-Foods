@@ -24,6 +24,7 @@ export default function Cards() {
     const firstRecipePage = quantity - recipesPage;
     var showRecipesPage;
     showRecipesPage = recipesState.slice(firstRecipePage, quantity);
+    var max = recipesState.length / recipesPage
     
     if(typeof showRecipesPage === 'string'){ //When searching for name of unexisting recipe
         showRecipesPage ='Could not find recipes ❌'
@@ -81,11 +82,12 @@ export default function Cards() {
                 <button className='b' value='AZ' onClick={e => handleEventAlphabet(e)}>Sort from A to Z </button> 
             
                 <button className='b' value='ZA'  onClick={e => handleEventAlphabet(e)}>Sort from Z to A</button>
+
             <div> 
             </div>
                 <Link to='/create'> <button className='buttons' id='c'>Create your own recipe</button> </Link> </div> 
             <div className='paginationBack'>
-                <Pagination recipesPage={recipesPage} recipesState={recipesState.length} paged={paged}/>
+                <Pagination recipesPage={recipesPage} recipesState={recipesState.length} paged={paged} max={max} setPage={setPage} page={page}/>
             </div>
             <div><button className='refresh' onClick={handleClick}> 🔄</button></div>
             </div>
