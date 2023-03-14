@@ -1,15 +1,19 @@
 select{
     width: 200px;
-    height: 20px;
+    height: 30px;
     border-radius: 10px;
     border:none;
+    background-color: rgb(203, 203, 203);
+    margin-right: 10px;
 }
 
 .selectDiet{
-    width: 150px;
-    height: 24px;
-    border-radius:10px;
+    width: 100px;
+    height: 30px;
     border:none;
-    margin-top: 10px;
+    margin-top: 16px;
+    padding: 2%;
+    margin-right: 10px;
 }
+
 

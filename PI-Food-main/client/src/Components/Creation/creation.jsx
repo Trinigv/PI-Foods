@@ -71,6 +71,14 @@ const handleSelect = (event) => {
         alert('You cant add the same diet twice')
     }
 }
+
+const handleDelete = (e) => {
+    e.preventDefault();
+    setNewRecipe({
+        ...newRecipe,
+        diets: newRecipe.diets.filter(d => d !== e.target.value)
+    })
+}
     return (
         <div className='f'>
         <div>
@@ -111,10 +119,15 @@ const handleSelect = (event) => {
                     <label>Select diets:</label>
                     <select onChange={(event) => handleSelect(event)} >
                         {diets.map((d) => <option onClick={(event) => handleSelect(event)}
-                        key={d.id} value={d.name}>{d.name}</option>)} 
-                    </select>
-                    <ul><li>{newRecipe.diets + ' '}</li></ul>
+                        key={d.id} value={d.name}>{d.name}
+                        </option>
+                        )} 
+                    </select> 
+                    <ul>{newRecipe.diets?.map(el =>
+                        <li>{el} <button value={el} onClick={(e) => handleDelete(e)}>X</button></li>
+                        )}</ul>
                 </div>
+                
 
                 <input className='button' type='submit' name='Submit' />
             </form>

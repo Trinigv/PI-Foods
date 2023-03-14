@@ -14,6 +14,7 @@ const getAPI = async () => {
                 healthScore: el.healthScore,
                 summary: el.summary,
                 instructions: el.analyzedInstructions[0]?.steps.map(s => s.step ),
+                dishtypes: el.dishtypes,
                 diets: el.diets,
                 image: el.image
             }
@@ -69,32 +70,6 @@ const getRecipeId = async (req, res, next) => {
         next(e) }
 };
 
-const recipeDetails = async (req, res, next) => {
-    const { id } = req.params;
-    if(!id) res.send('id needed')
-    try {
-    if(id.includes('-')){
-        var recipeD = await Recipe.findByPk(id)
-        res.send(recipeD)
-    } else {
-    let recipeD = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=594c740d7ab64aa69cf3df33b02c78c4`)
-    recipeD = recipeD.data
-    var cleanRecipe = {
-        title: recipeD.title,
-        dishTypes: recipeD.dishTypes,
-        summary: recipeD.summary,
-        diets: recipeD.diets,
-        healthScore: recipeD.healthScore,
-        instructions: recipeD.instructions,
-        image: recipeD.image
-    }
-    res.send(cleanRecipe)
-    }
-    } catch(e) {
-        next(e)
-    }
-}
-
 const createRecipe = async (req, res, next) => {
     const { title, summary, healthScore, instructions, image, diets } = req.body;
     if(!title || !summary) return res.status(404).json({err: 'Faltan datos obligatorios'})
@@ -121,4 +96,4 @@ const createRecipe = async (req, res, next) => {
 }*/
 
 
-module.exports = { filterFunction, getRecipeId, createRecipe, allRecipes, recipeDetails }
+module.exports = { filterFunction, getRecipeId, createRecipe, allRecipes }

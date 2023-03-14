@@ -1,18 +1,22 @@
 .titleRecipe{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 15px;
+    font-family: 'Asap', sans-serif;
+    font-size: 12px;
     color: rgb(40, 40, 40)
 }
 
+.titleRecipe:hover{
+    color: rgba(0, 140, 255, 0.5);
+    cursor:pointer;
+}
+
 .imageRecipe{
-    border-radius: 150px;
     max-width: 100%;
 }
 
 .detailbutton{
     border:none;
     border-radius: 10px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Asap', sans-serif;
     background-color: whitesmoke;
     width: 90px;
     height: 30px;
@@ -23,26 +27,26 @@ a:link{
 }
 
 .recipesCard{
-    padding: 15px;
-    border: 2px;
     border-style: solid;
-    border-radius: 10%;
     border-color: lightgrey;
-    margin-top: 3px;
-    margin-left: 7px;
-    margin-bottom: 3px;
-    margin-right: 7px;
-    padding: 40px;
-    background-color: lightgrey;
-    opacity: 90%;
+}
 
+.ext{
+    padding-top: 3%;
+    padding-bottom: 3%;
 }
 
 .dietsRecipe{
-    color: rgb(40, 40, 40)
+    color: rgb(40, 40, 40);
+    font-family: 'Asap', sans-serif;
+    font-size: 100%;
 }
 
 .reset{
     width: 50px;
+}
+
+#recipeimg{
+    padding-bottom: 2%;
 }
 

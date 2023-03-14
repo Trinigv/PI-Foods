@@ -1,32 +1,47 @@
-video {
-    position:absolute;
-    right: 0;
-    bottom: 0;
-    min-height: 100%;
-    min-width: 100%;
+.backimg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
     z-index: -1;
-  
+    left: 0;
+    top: 0;
 }
 
 h3{
-    font-size: 500%;
-    font-family:monospace;
-    color: rgb(254, 185, 197);
+    font-size: 400%;
+    font-family: 'Asap', sans-serif;
+    color: rgb(41, 41, 41);
     font: bolder;
+    float:left;
+    height: 100px;
+    padding: 5%;
+    background-color: #f26060;
+    opacity: 85%;
 }
+
+h3:hover {
+    color: white;
+  }
+
 
 .starting{
     border-radius: 15px;
     border:none;
-    width: 120px;
-    height: 90px;
-    background-color: whitesmoke;
-    margin-top: 5px;
-    font-size: large;
-    font-family: monospace;
+    width: 190px;
+    height: 60px;
+    background-color: #f26060;
+    margin-top: 160px;
+    font-size: x-large;
+    font-family: 'Asap', sans-serif;
+    color: rgb(41, 41, 41);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5)
 }
 
 .starting:hover{
-    background-color:pink
+    background: #f4b003;
+    color: #050801;
+    box-shadow: 0 0 5px #f4b003,
+                0 0 25px #f4b003,
+                0 0 50px #f4b003,
+                0 0 200px #f4b003;
 }
-

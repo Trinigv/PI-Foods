@@ -1,14 +1,20 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import './index.css'
-import video from '../Css modules/videos/fruits2.mp4'
+import { Link } from 'react-router-dom';
+import './index.css';
+import backimg from '../videos/pump.jpeg';
 
 export default function Landing() {
-    return (
-        <div>
-            <video autoPlay muted loop> <source src={video}/> </video>
-            <h3>Welcome to The Recipes Web Page</h3>
-            <Link to='/home' id='start'> <button className='starting'>Get Started</button></Link>
-        </div>
-    )
+	return (
+		<div className='backgroundland'>
+			<img className='backimg' src={backimg} alt='back'></img>
+			<div className='foodspi'>
+				<h3>'Foods' Project</h3>
+			</div>
+			<div className='buttonstartdiv'>
+				<Link to='/home' id='start'>
+					<button className='starting'>Show me recipes!</button>
+				</Link>
+			</div>
+		</div>
+	);
 }

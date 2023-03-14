@@ -1,20 +1,97 @@
-#back{
-    background-color:blanchedalmond;
+.titleRecipe{
+    font-size: 200%;
+    font-family: 'Asap', sans-serif;
 }
-#titleRecipe{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: larger;
+
+.instructionsRecipe{
+    font-size: medium;
+    font-family: 'Asap', sans-serif;
+    color:black;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 120%;
+    letter-spacing: 1px;
+    
+}
+
+.subtitle{
+    background-color: rgba(0, 140, 255, 0.5);
+    font-size: 200%;
+    width: 18%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.healthscore{
+    font: 150%;
+    padding-left: 15%;
 }
 
 .summaryRecipe{
-    font-size: medium;
+    font-size: 120%;
+    font-family: 'Asap', sans-serif;
+    letter-spacing: 1px;
 }
 
-#instructions{
-    font-size: medium;
-    color: black;
+.imageDetail{
+    border-radius: none;
+    width: 90%;
+    height: 90%;
+    padding-right: 2%;
 }
 
-#healthScoreRecipe{
-    color: green;
+
+.box{
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.dietsRecipe{
+    font-size: 150%;
+    font-family: 'Asap', sans-serif;
+}
+
+.home{
+    width: 140px;
+    height: 30px;
+    border: none;
+    box-shadow: 0px 5px 1px 0px rgba(0, 0, 0, 0.5);
+    font-family: 'Asap', sans-serif;
+    margin-top: 25%;
+}
+
+.contdiv{
+    display: flex;
+    align-items: center;
+    border: solid;
+    border-color: rgba(0, 140, 255, 0.5);
+    border-width: 3px;
+    padding: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.contdivhealth{
+    display: flex;
+    justify-content: space-evenly;
+    border: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    border-width: 3px;
+    margin-top: 5%;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.instruct{
+    font-size: 200%;
+    font-family: 'Asap', sans-serif;
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 140, 255, 0.5);
+    letter-spacing: 3px;
+}
+
+.boxnav{
+    display: flex;
+    justify-content:space-between;
+
 }

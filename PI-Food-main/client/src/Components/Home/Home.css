@@ -1,68 +1,68 @@
-.cards {
+.navbar{
+    border-bottom: solid 1px;
+    color: rgba(0, 140, 255, 0.5)
+}
+
+.filters{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    justify-items: center;
-    padding: 15px;
-    background-image: url('https://images.pexels.com/photos/5824523/pexels-photo-5824523.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-    padding: 80px;
-}
-
-.body{
-    background-color:  rgb(40, 40, 40);
-}
-
-.paginationBack{
-    background-color: rgb(40, 40, 40);
-}
-
-.all{
-    background-color: rgb(40, 40, 40);
+    justify-content: flex-end;
+    margin-right: 20px;
+    padding-top: 1%;
+    color: grey;
+    cursor:pointer;
 }
 
 .buttons{
-    margin-top: 10px;
-    margin-bottom: 5px;
-    border-radius: 90px;
-    border:none;
-    padding:2px;
-    justify-content: space-around;
-    padding-inline: 80px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 3%;
+    border: none;
 }
 
-  
+.morebut{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1%;
+    border: none;
+}
+
+.refresh{
+    width: 140px;
+    height: 30px;
+    border: none;
+    box-shadow: 0px 5px 1px 0px rgba(0, 0, 0, 0.5)
+}
+
+.refresh:hover{
+    box-shadow: 0px 5px 1px 0px rgba(0, 140, 255, 0.5)
+}
+
+.create{
+    width: 140px;
+    height: 30px;
+    border: none;
+    box-shadow: 0px 5px 1px 0px rgba(0, 0, 0, 0.5)
+}
+
+.create:hover{
+    box-shadow: 0px 5px 1px 0px rgba(0, 140, 255, 0.5)
+}
 
 
 .b{
-    border-radius: 10px;
-    border:none;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 140px;
     height: 30px;
+    border: none;
+    box-shadow: 0px 5px 1px 0px rgba(0, 0, 0, 0.5)
+    
 }
 
 .b:hover{
-    background-color: pink;
+    box-shadow: 0px 5px 1px 0px rgba(0, 140, 255, 0.5);
+    cursor:pointer;
 }
 
-.searchHome{
-    display: flex;
-    flex-direction:column;
-    justify-content: center;
-    padding: 2px;;
-}
-
-#c:hover{
-    background-color: pink;
-}
-    
-.refresh{
-  height: 25px;
-  width: 28px;
-  background-color: whitesmoke;
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  border-color: black;
+.cards{
+    padding-left: 20%;
+    padding-right: 20%;
 }

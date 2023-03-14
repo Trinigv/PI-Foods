@@ -1,7 +1,7 @@
 .numberpages{
-    background-color: pink;
-    border-radius: 5px;
-    border:none;
+    background-color: rgba(0, 140, 255, 0.5);
+    border: none;
+    
 }
 
 ul{
@@ -9,4 +9,6 @@ ul{
     display: flex;
     justify-content:center;
     list-style-type:none;
+    padding: 2%
+    
 }

@@ -32,7 +32,8 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 const { Recipe, Diet } = sequelize.models;
-var tablaIntermedia = sequelize.define('recipe_diet', {}, { timestamps: false })
+var tablaIntermedia = sequelize.define('recipe_diet', {}, { timestamps: false})
+
 // Aca vendrian las relaciones
 Recipe.belongsToMany(Diet, { through: tablaIntermedia}); 
 Diet.belongsToMany(Recipe, { through: tablaIntermedia});

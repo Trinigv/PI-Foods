@@ -78,3 +78,9 @@ export function sortAlphabetically(payload) {
         payload
     }
 }
+
+export function deleteState() {
+    return {
+        type: 'DELETE',
+    }
+}
