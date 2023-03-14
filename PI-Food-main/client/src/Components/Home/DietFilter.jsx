@@ -29,7 +29,7 @@ export default function DietFilter({ setPage }) {
 
 	return (
 		<div className='dietfilter'>
-			<select onChange={(e) => handleSelect(e)}>
+			<select id='filtdiets' onChange={(e) => handleSelect(e)}>
 				{' '}
 				<option value='none' selected disabled hidden>
 					Select an Option

@@ -25,7 +25,7 @@ export default function SearchBar({ setPage }) {
 		<form>
 			<div className='search'>
 				<input
-					className='inp'
+					className='inputsearch'
 					type='text'
 					placeholder='Search...'
 					onChange={(e) => handleChange(e)}

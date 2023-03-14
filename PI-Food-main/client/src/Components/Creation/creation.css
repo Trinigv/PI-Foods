@@ -1,65 +1,75 @@
-.background{
-    background-color: beige;
+.f{
+    padding-top: 2%;
+    display: flex;
+    justify-content: center;
 }
 
-h2{
-    font-family: monospace;
-    font-size: xx-large;
-    font-style: italic;
+#create{
+    background-color: rgb(232, 232, 232);
+    width: 100%;
+    border: solid black;
+    border-width: 1px;
+    height: 40px;
 }
 
-form{
-    font-family: 'Courier New', Courier, monospace;
-    padding: 15px;
-    display:block;
-    font-size: larger;
-}
-
-input:hover{
-    background-color: pink;
+.buttonhome{
+    margin-left: 80%;
+    border: none;
+    height: 40px;
+    width: 50;
+    font-style: 'Asap', sans-serif;
+    background-color: rgba(0, 140, 255, 0.5);
 }
 
 .title{
-    font-family: 'Courier New', Courier, monospace;
-    margin-right: 7px;
-    font-size:larger;
-}
-
-.diets{
-    margin-top: 20px;
-    padding:15px;
-    justify-content: center;
-    margin-right: 80px;
-    
-}
-
-.image{
-    margin-top: 5px;
-    padding:15px;
-    margin-right: 5px;
-    justify-content: center;
-    font-size:larger;
-}
-
-.intstructions{
-    margin-right: 90px;
-    margin-top: 20px;
-    font-size:larger;
-}
-
-.healthscore{
-    margin-right: 85px;
-    margin-top: 20px;
-    font-size:larger;
+    margin-bottom: 10%;
 }
 
 .summary{
-    margin-right: 30px;
-    margin-top: 20px;
-    font-size:larger;
+    margin-bottom: 10%;
 }
 
-.button{
-    margin-left: 60px;
+.healthScore{
+    margin-bottom: 10%;
 }
 
+.intscreate{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.imagecreate{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+
+#newlab{
+    background-color: rgb(237, 237, 237);
+    width: 90%;
+    border: solid black;
+    border-width: 1px;
+    height: 40px;
+}
+
+#createrecipe{
+    font-style: 'Asap', sans-serif;
+    font-size: 200%;
+    background-color: rgba(0, 140, 255, 0.5);
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+
+
+#lab{
+    font-size: 150%;
+    font-family: 'Asap', sans-serif
+}
+
+.buttoncreate{
+   background-color: rgba(0, 140, 255, 0.5);
+   width: 90%;
+   border: none;
+   height: 40px;
+}
